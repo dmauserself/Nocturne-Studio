@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Дизайн-система «Лунная ночь»
+   ============================================================ */
+:root {
+  --night-950: #05030a;
+  --night-900: #0a0714;
+  --night-800: #0f0a1e;
+
+  --violet: #7c5cff;
+  --lilac: #b9a6ff;
+  --moon: #ede9ff;
+  --indigo: #2a1b5e;
+  --purple: #9b5cff;
+  --ice: #8fb4ff;
+
+  /* Те же цвета каналами RGB — для Tailwind-модификаторов прозрачности (bg-violet/40) */
+  --night-950-rgb: 5 3 10;
+  --night-900-rgb: 10 7 20;
+  --night-800-rgb: 15 10 30;
+  --violet-rgb: 124 92 255;
+  --lilac-rgb: 185 166 255;
+  --moon-rgb: 237 233 255;
+  --indigo-rgb: 42 27 94;
+  --purple-rgb: 155 92 255;
+  --ice-rgb: 143 180 255;
+
+  --text-head: #ffffff;
+  --text-body: rgba(237, 233, 255, 0.68);
+  --text-muted: rgba(237, 233, 255, 0.5);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+
+  --gutter: clamp(16px, 4vw, 64px);
+  --section-y: clamp(88px, 12vw, 180px);
+  --radius-card: 28px;
+  --radius-window: clamp(24px, 3vw, 44px);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    background: var(--night-950);
+    scroll-padding-top: 90px;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  /* Без Lenis (Safari, reduced motion) — нативная плавная прокрутка к якорям */
+  html.native-scroll {
+    scroll-behavior: smooth;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  body {
+    @apply font-sans antialiased;
+    background: var(--night-950);
+    color: var(--text-body);
+    overflow-x: hidden;
+    overflow-x: clip;
+    font-feature-settings: 'lnum' 1, 'kern' 1;
+  }
+  h1, h2, h3, h4 {
+    color: var(--text-head);
+  }
+  ::selection {
+    background: var(--violet);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--lilac);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  img, svg {
+    display: block;
+  }
+}
+
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 1680px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .section {
+    position: relative;
+    padding-block: var(--section-y);
+  }
+
+  /* Скруглённое «окно» секции на чёрном фоне */
+  /* Окно секции не обрезает содержимое: обрезка по скруглению вокруг анимированных слоёв
+     (3D-луна, параллакс) заставляла Safari строить маску на каждом кадре — отсюда мерцание.
+     Обрезается только статичный декоративный фон — .window-bg. */
+  .window {
+    position: relative;
+    border-radius: var(--radius-window);
+    background: var(--night-900);
+    border: 1px solid var(--line);
+    isolation: isolate;
+  }
+  .window-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    @apply text-[12px] sm:text-[13px] font-medium uppercase tracking-[0.22em];
+    color: var(--lilac);
+  }
+
+  .lead {
+    @apply text-[15px] sm:text-base md:text-[17px] leading-[1.6];
+    color: var(--text-body);
+  }
+
+  .h-display {
+    @apply font-semibold uppercase;
+    font-size: clamp(1.9rem, 4.3vw, 4.9rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+
+  .glass {
+    position: relative;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--line);
+    /* «Стекло» без backdrop-filter: он заставлял браузер пересчитывать размытие фона
+       на каждом кадре прокрутки, из-за чего карточки мерцали. На тёмном фоне
+       полупрозрачная заливка с градиентом выглядит так же. */
+    background:
+      linear-gradient(160deg, rgba(185, 166, 255, 0.09), rgba(15, 10, 30, 0.2) 55%),
+      rgba(12, 8, 24, 0.82);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  /* Кнопки */
+  .btn-primary {
+    @apply relative inline-flex items-center gap-4 rounded-full pl-7 pr-1.5 py-1.5 text-[15px] font-medium;
+    background: linear-gradient(180deg, #ffffff, var(--moon));
+    color: var(--night-950);
+    box-shadow: 0 10px 40px -12px rgba(185, 166, 255, 0.55);
+    transition: box-shadow 0.4s var(--ease-out);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 16px 60px -10px rgba(185, 166, 255, 0.8);
+  }
+  .btn-primary .btn-dot {
+    @apply grid h-12 w-12 place-items-center rounded-full;
+    background: var(--night-950);
+    color: #fff;
+    transition: transform 0.5s var(--ease-out);
+  }
+  .btn-primary:hover .btn-dot {
+    transform: rotate(45deg);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full px-7 py-[18px] text-[15px] font-medium text-white;
+    background: rgba(18, 13, 36, 0.7);
+    border: 1px solid var(--line-strong);
+    transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+  }
+  .btn-ghost:hover {
+    background: rgba(124, 92, 255, 0.14);
+    border-color: rgba(185, 166, 255, 0.45);
+  }
+
+  .btn-round {
+    @apply grid place-items-center rounded-full shrink-0;
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), background 0.3s;
+  }
+  .btn-round--light {
+    background: var(--moon);
+    color: var(--night-950);
+  }
+  .btn-round--accent {
+    background: var(--violet);
+    color: #fff;
+    box-shadow: 0 0 0 1px rgba(185, 166, 255, 0.35), 0 10px 40px -6px rgba(124, 92, 255, 0.75);
+  }
+  .btn-round:hover {
+    transform: scale(1.06);
+  }
+  .btn-round--accent:hover {
+    box-shadow: 0 0 0 1px rgba(185, 166, 255, 0.6), 0 14px 56px -4px rgba(124, 92, 255, 0.95);
+  }
+
+  /* Контурный текст для marquee и фоновых надписей */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(237, 233, 255, 0.55);
+  }
+
+  /* Лунное свечение — размытые пятна */
+  .glow {
+    position: absolute;
+    border-radius: 9999px;
+    pointer-events: none;
+    /* Мягкое пятно без filter: blur — не нагружает GPU и не мигает при скролле */
+    background: radial-gradient(closest-side, currentColor, transparent);
+  }
+
+  .field {
+    @apply w-full rounded-2xl px-5 py-4 text-[15px] text-white outline-none;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid var(--line-strong);
+    transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  }
+  .field::placeholder {
+    color: rgba(237, 233, 255, 0.4);
+  }
+  .field:focus {
+    border-color: var(--lilac);
+    background: rgba(124, 92, 255, 0.07);
+    box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.18);
+  }
+  .field[aria-invalid='true'] {
+    border-color: #ff8fb4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+}
+
+/* Полоса прогресса карусели — чистая CSS-анимация transform */
+@keyframes slide-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Зернистость поверх сайта */
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.06;
+  /* Текстура шума генерируется один раз на canvas (см. components/Noise.tsx) —
+     SVG feTurbulence Safari пересчитывал при каждой прокрутке */
+  background-image: var(--noise-url);
+  background-size: 160px 160px;
+}
+
+
+/* Режим облегчённых эффектов для Safari: «дыхание» свечений выключено (переключатель в lib/browser.ts) */
+.lite-effects .animate-breathe,
+.lite-effects .animate-breathe-slow {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

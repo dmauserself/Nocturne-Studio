@@ -1,0 +1,14 @@
+# Зависимости и сборка
+node_modules
+dist
+*.tsbuildinfo
+
+# Секреты и локальные настройки хостинга
+.env
+.env.local
+.netlify
+.vercel
+
+# Локальные файлы редактора и системы
+.claude
+.DS_Store
