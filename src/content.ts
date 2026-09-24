@@ -1,6 +1,9 @@
 /**
- * Все тексты сайта в одном месте.
+ * Все тексты сайта в одном месте (английская версия).
  * Меняйте название, формулировки, цифры и контакты здесь.
+ *
+ * Типографика: в текстах используются «правильные» символы — ’ (апостроф), “ ” (кавычки),
+ * — (длинное тире), – (диапазоны). Буква после «^» в заголовке заменяется фирменной луной.
  */
 
 /**
@@ -11,54 +14,54 @@
 export const DEMO_MODE = true
 
 export const DEMO = {
-  successTitle: 'Это демо-сайт',
-  successText: 'Форма работает в демонстрационном режиме: заявка никуда не отправлена. Это концепт-проект из портфолио.',
-  footerNote: 'Концепт-проект для портфолио: бренд, команда, отзывы и кейсы вымышлены.',
+  successTitle: 'This is a demo site',
+  successText: 'The form runs in demo mode, so your message wasn’t sent anywhere. This is a concept project from a design portfolio.',
+  footerNote: 'Concept project for a design portfolio. The brand, team, testimonials and case studies are fictional.',
 }
 
 export const BRAND = {
   name: 'NOCTURNE',
   suffix: 'STUDIO',
   full: 'NOCTURNE STUDIO',
-  tagline: 'Маркетинговое агентство и креативная студия, которая строит ясные бренд-системы',
+  tagline: 'A marketing agency and creative studio building clear brand systems',
 }
 
 export const NAV_LEFT = [
-  { label: 'Главная', href: '#top' },
-  { label: 'Услуги', href: '#services' },
-  { label: 'О нас', href: '#about' },
-  { label: 'Проекты', href: '#projects' },
+  { label: 'Home', href: '#top' },
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#about' },
+  { label: 'Work', href: '#projects' },
 ]
 
 export const NAV_RIGHT = [
-  { label: 'Философия', href: '#philosophy' },
-  { label: 'Команда', href: '#team' },
+  { label: 'Philosophy', href: '#philosophy' },
+  { label: 'Team', href: '#team' },
   { label: 'FAQ', href: '#faq' },
-  { label: 'Контакты', href: '#contact' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export const HERO = {
-  eyebrow: 'Маркетинговое агентство',
-  titleLines: ['Сначала ясность.', 'Потом система.'],
-  subtitle: 'Стратегия, айдентика и коммуникации, собранные в единую бренд-систему.',
-  ctaPrimary: 'Обсудить проект',
-  ctaSecondary: 'Смотреть работы',
+  eyebrow: 'Marketing agency',
+  titleLines: ['Clarity first.', 'Then the system.'],
+  subtitle: 'Strategy, identity and communication, shaped into one clear brand system.',
+  ctaPrimary: 'Start a project',
+  ctaSecondary: 'View our work',
   slides: [
     {
-      title: 'Узнаваемость',
-      text: 'Строим визуальные системы, после которых бренд узнают за секунду.',
+      title: 'Recognition',
+      text: 'We build visual systems that make brands recognizable at a glance.',
       tone: 'violet' as const,
       art: 'crescent' as const,
     },
     {
-      title: 'Характер',
-      text: 'Находим голос, который звучит как ваш бизнес, а не как все остальные.',
+      title: 'Character',
+      text: 'We find a voice that sounds like your business — not like everyone else’s.',
       tone: 'indigo' as const,
       art: 'eclipse' as const,
     },
     {
-      title: 'Рост',
-      text: 'Превращаем айдентику в инструмент продаж, а не в красивую папку.',
+      title: 'Growth',
+      text: 'We turn identity into a sales tool, not a pretty PDF that gathers dust.',
       tone: 'ice' as const,
       art: 'star' as const,
     },
@@ -66,218 +69,262 @@ export const HERO = {
   stats: [
     {
       value: '100%',
-      text: 'Никаких случайных визуалов. Только чёткие системы для узнаваемости.',
+      text: 'No random visuals. Only clear systems built for recognition.',
     },
     {
       value: '360°',
-      text: 'Полное присутствие бренда: от стратегии и айдентики до запуска.',
+      text: 'Full brand presence — from strategy and identity to launch.',
     },
   ],
 }
 
-export const MARQUEE = ['Айдентика', 'Стратегия', 'Кампании', 'Дизайн-системы', 'Упаковка', 'Digital']
+export const MARQUEE = ['Identity', 'Strategy', 'Campaigns', 'Design Systems', 'Packaging', 'Digital']
 
 export const PRESENCE = {
-  eyebrow: 'Присутствие на рынке',
-  side: 'Креативная студия',
-  titleLines: ['Мы формируем бренды', 'через ясн^ость и структуру,', 'чтобы узнаваемость', 'оставалась надолго'],
-  text: 'NOCTURNE STUDIO — маркетинговое агентство и креативная студия. Мы собираем бренд-системы, которые работают на рынке годами, а не один сезон.',
+  eyebrow: 'Market presence',
+  side: 'Creative studio',
+  titleLines: ['We shape brands with', 'clarity and structure', 'int^o recognition', 'that lasts'],
+  text: 'NOCTURNE STUDIO is a marketing agency and creative studio. We build brand systems designed to work for years, not for a single season.',
   cards: [
     {
       value: 100,
       suffix: '%',
-      title: 'Индивидуальный подход',
-      text: 'Каждое решение строим вокруг вашего бренда, рынка и аудитории, до которой нужно дотянуться.',
+      title: 'Tailored direction',
+      text: 'Every solution is shaped around the brand, its market and the audience it needs to reach.',
       variant: 'mesh' as const,
     },
     {
       value: 50,
       suffix: '+',
-      title: 'Реализованных проектов',
-      text: 'Бренд-системы, айдентика и кампании для компаний, которые хотят расти понятно и заметно.',
+      title: 'Projects delivered',
+      text: 'Brand systems, visual identities and campaigns for businesses that want clear, visible growth.',
       variant: 'light' as const,
     },
     {
       value: 97,
       suffix: '%',
-      title: 'Довольных клиентов',
-      text: 'Сильный результат, прозрачная коммуникация и сроки, за которые не стыдно.',
+      title: 'Client satisfaction',
+      text: 'Strong results, honest communication and on-time delivery keep clients confident in the work.',
       variant: 'portrait' as const,
     },
   ],
 }
 
 export const SERVICES = {
-  eyebrow: 'Услуги',
-  title: 'Что мы делаем',
-  text: 'Шесть направлений, которые складываются в одну систему. Можно заказать одно, но лучше всего они работают вместе.',
+  eyebrow: 'Services',
+  title: 'What we do',
+  text: 'Six disciplines that add up to one system. Each works on its own — together, they work best.',
   items: [
     {
-      title: 'Бренд-стратегия',
-      text: 'Исследуем рынок и аудиторию, находим позиционирование, за которое конкурентам будет нечем крыть.',
+      title: 'Brand strategy',
+      text: 'We research your market and audience to find a position your competitors can’t answer.',
     },
     {
-      title: 'Фирменный стиль',
-      text: 'Логотип, цвет, типографика и графика, собранные в систему с понятными правилами.',
+      title: 'Visual identity',
+      text: 'Logo, color, typography and graphics — assembled into one system with clear rules.',
     },
     {
-      title: 'Дизайн упаковки',
-      text: 'Упаковка, которую выбирают с полки за три секунды и не выбрасывают сразу после покупки.',
+      title: 'Packaging design',
+      text: 'Packaging that gets picked off the shelf in three seconds and kept long after the purchase.',
     },
     {
-      title: 'Digital и сайты',
-      text: 'Сайты и продуктовые интерфейсы, которые продают так же уверенно, как выглядят.',
+      title: 'Web & digital',
+      text: 'Websites and product interfaces that sell as confidently as they look.',
     },
     {
-      title: 'Рекламные кампании',
-      text: 'Идея, визуал и медиаплан. Кампании, о которых говорят, и цифры, которые растут.',
+      title: 'Ad campaigns',
+      text: 'Idea, visuals and media plan. Campaigns people talk about, with numbers that move.',
     },
     {
-      title: 'Сопровождение бренда',
-      text: 'Держим систему в форме: новые носители, гайдлайны, контроль качества на каждом касании.',
+      title: 'Brand stewardship',
+      text: 'We keep the system in shape: new touchpoints, guidelines and quality control at every step.',
     },
   ],
 }
 
 export const PHILOSOPHY = {
-  eyebrow: 'Философия',
-  titleLines: ['Ясные бренды', '^остаются', 'в памяти.'],
+  eyebrow: 'Philosophy',
+  titleLines: ['Clear', 'brands stay', 'in mem^ory.'],
   paragraphs: [
-    'Бренд становится запоминающимся, когда его понимают сразу и узнают без усилий. Ясность создаёт первый, самый сильный контакт.',
-    'Постоянство превращает этот контакт в доверие. Когда одна и та же визуальная логика звучит в каждой точке касания, бренд начинает ощущаться своим.',
-    'Узнаваемость не бывает случайной. Она строится через форму, контраст, повторение и систему, которая держит бренд в голове у людей.',
+    'A brand becomes truly memorable when people can understand it quickly and recognize it without extra effort. Clarity creates the first strong connection.',
+    'Consistency turns that connection into lasting trust. When the same visual logic appears across every touchpoint, the brand starts to feel familiar.',
+    'Recognition is never a random effect. It’s built through form, contrast, repetition and a clear system that keeps the brand present in people’s minds.',
   ],
-  cta: 'Обсудить проект',
-  identity: { label: 'Айдентика', price: 'от 1 200 000 ₽', progressLabel: 'Готовность системы', progress: 70 },
-  campaign: { label: 'Кампания', price: 'от 750 000 ₽' },
+  cta: 'Start a project',
+  identity: { label: 'Identity scope', price: 'from $18,000', progressLabel: 'Progress', progress: 70 },
+  campaign: { label: 'Campaign scope', price: 'from $11,500' },
 }
 
 export const PROJECTS = {
-  eyebrow: 'Проекты',
-  title: 'Избранные кейсы',
-  text: 'Несколько историй о том, как ясная система меняет восприятие бренда и его цифры.',
-  cta: 'Смотреть кейс',
+  eyebrow: 'Selected work',
+  title: 'Case studies',
+  text: 'A few stories of how a clear system changes the way a brand is seen — and the numbers behind it.',
+  cta: 'View case',
   items: [
-    { name: 'Полярис', category: 'Айдентика · Финтех', year: '2025', palette: ['#7C5CFF', '#2A1B5E', '#8FB4FF'] },
-    { name: 'Северный мёд', category: 'Упаковка · FMCG', year: '2025', palette: ['#B9A6FF', '#2A1B5E', '#9B5CFF'] },
-    { name: 'Атлас Девелопмент', category: 'Стратегия · Недвижимость', year: '2024', palette: ['#9B5CFF', '#0F0A1E', '#7C5CFF'] },
-    { name: 'Люмен', category: 'Digital · EdTech', year: '2024', palette: ['#8FB4FF', '#2A1B5E', '#B9A6FF'] },
-    { name: 'Кофе «Графит»', category: 'Кампания · HoReCa', year: '2024', palette: ['#EDE9FF', '#2A1B5E', '#7C5CFF'] },
-    { name: 'Орбита Клиник', category: 'Бренд-система · Медицина', year: '2023', palette: ['#7C5CFF', '#05030A', '#8FB4FF'] },
+    { name: 'Polaris', category: 'Identity · Fintech', year: '2025', palette: ['#7C5CFF', '#2A1B5E', '#8FB4FF'] },
+    { name: 'Northern Honey', category: 'Packaging · FMCG', year: '2025', palette: ['#B9A6FF', '#2A1B5E', '#9B5CFF'] },
+    { name: 'Atlas Development', category: 'Strategy · Real estate', year: '2024', palette: ['#9B5CFF', '#0F0A1E', '#7C5CFF'] },
+    { name: 'Lumen', category: 'Digital · EdTech', year: '2024', palette: ['#8FB4FF', '#2A1B5E', '#B9A6FF'] },
+    { name: 'Graphite Coffee', category: 'Campaign · Hospitality', year: '2024', palette: ['#EDE9FF', '#2A1B5E', '#7C5CFF'] },
+    { name: 'Orbit Clinic', category: 'Brand system · Healthcare', year: '2023', palette: ['#7C5CFF', '#05030A', '#8FB4FF'] },
   ],
 }
 
 export const PROCESS = {
-  eyebrow: 'Процесс',
-  title: 'Как мы работаем',
-  text: 'Пять фаз, как фазы луны: от тёмного неизвестного к полной ясности.',
+  eyebrow: 'Process',
+  title: 'How we work',
+  text: 'Five phases, like the phases of the moon — from the unknown to complete clarity.',
   steps: [
-    { title: 'Погружение', text: 'Интервью с командой, анализ рынка, конкурентов и аудитории. Разбираемся, как устроен ваш бизнес изнутри.', time: '1–2 недели' },
-    { title: 'Стратегия', text: 'Формулируем позиционирование, платформу бренда и тон голоса. Договариваемся о том, куда идём.', time: '2–3 недели' },
-    { title: 'Айдентика', text: 'Собираем визуальную систему: знак, цвет, шрифты, графику и правила их жизни.', time: '3–5 недель' },
-    { title: 'Запуск', text: 'Выводим бренд на все носители: сайт, упаковка, соцсети, реклама. Без потерь по дороге.', time: '2–4 недели' },
-    { title: 'Развитие', text: 'Сопровождаем, измеряем и усиливаем. Система растёт вместе с вашим бизнесом.', time: 'постоянно' },
+    { title: 'Immersion', text: 'Interviews with your team and a deep look at the market, competitors and audience. We learn how your business really works.', time: '1–2 weeks' },
+    { title: 'Strategy', text: 'We define positioning, the brand platform and tone of voice — and agree on exactly where we’re heading.', time: '2–3 weeks' },
+    { title: 'Identity', text: 'We build the visual system: mark, color, type, graphics and the rules that hold it all together.', time: '3–5 weeks' },
+    { title: 'Launch', text: 'We roll the brand out across every touchpoint — site, packaging, social, ads — with nothing lost along the way.', time: '2–4 weeks' },
+    { title: 'Growth', text: 'We support, measure and strengthen. The system grows as your business does.', time: 'Ongoing' },
   ],
 }
 
 export const TEAM = {
-  eyebrow: 'Команда',
-  title: 'Люди за системой',
-  text: 'Небольшая команда сеньоров. Вы общаетесь с теми, кто делает работу, а не с посредниками.',
+  eyebrow: 'Team',
+  title: 'The people behind the system',
+  text: 'A small team of senior specialists. You work directly with the people doing the work — no middlemen.',
   members: [
-    { name: 'Алиса Воронцова', role: 'Основатель, креативный директор' },
-    { name: 'Марк Левин', role: 'Стратег бренда' },
-    { name: 'Вера Соколова', role: 'Арт-директор' },
-    { name: 'Даниил Орлов', role: 'Руководитель digital' },
+    { name: 'Alice Vance', role: 'Founder, Creative Director' },
+    { name: 'Mark Levin', role: 'Brand Strategist' },
+    { name: 'Vera Sokol', role: 'Art Director' },
+    { name: 'Daniel Orr', role: 'Head of Digital' },
   ],
 }
 
 export const TESTIMONIALS = {
-  eyebrow: 'Отзывы',
-  title: 'Что говорят клиенты',
+  eyebrow: 'Testimonials',
+  title: 'What clients say',
   items: [
     {
-      quote: 'За четыре месяца мы из «ещё одного банка» стали брендом, который узнают по одному цвету. Заявки из digital выросли на 38%.',
-      name: 'Ольга Ветрова',
-      role: 'CMO, Полярис',
+      quote: 'In four months we went from “just another bank” to a brand people recognize by a single color. Digital leads grew by 38%.',
+      name: 'Olivia West',
+      role: 'CMO, Polaris',
     },
     {
-      quote: 'NOCTURNE не рисовали красивые картинки ради картинок. Они сначала поняли наш бизнес, а потом сделали упаковку, которая продаёт сама.',
-      name: 'Игорь Семёнов',
-      role: 'Основатель, Северный мёд',
+      quote: 'NOCTURNE didn’t make pretty pictures for their own sake. They understood our business first — then built packaging that sells itself.',
+      name: 'Ian Sutton',
+      role: 'Founder, Northern Honey',
     },
     {
-      quote: 'Редкий случай, когда подрядчик держит сроки и при этом спорит по делу. Гайдлайн работает уже третий год без единой правки.',
-      name: 'Екатерина Лаптева',
-      role: 'Директор по маркетингу, Атлас Девелопмент',
+      quote: 'A rare partner who hits every deadline and still pushes back when it matters. Our guidelines have run for three years without a single revision.',
+      name: 'Kate Lawson',
+      role: 'Marketing Director, Atlas Development',
     },
     {
-      quote: 'Сайт и айдентика собрались в одну историю. Конверсия выросла вдвое, а команда наконец перестала спорить о шрифтах.',
-      name: 'Артём Кравец',
-      role: 'CEO, Люмен',
+      quote: 'The website and the identity finally tell one story. Conversion doubled — and the team stopped arguing about fonts.',
+      name: 'Aaron Kraft',
+      role: 'CEO, Lumen',
     },
   ],
 }
 
 export const FAQ = {
   eyebrow: 'FAQ',
-  title: 'Частые вопросы',
+  title: 'Questions, answered',
   items: [
     {
-      q: 'Сколько длится проект?',
-      a: 'Фирменный стиль — от 6 до 10 недель, стратегия с айдентикой — от 3 месяцев. Точный план со всеми этапами присылаем после первой встречи.',
+      q: 'How long does a project take?',
+      a: 'A visual identity takes 6–10 weeks; strategy plus identity starts at three months. You’ll get a detailed, stage-by-stage timeline after our first call.',
     },
     {
-      q: 'Сколько это стоит?',
-      a: 'Айдентика — от 1 200 000 ₽, рекламная кампания — от 750 000 ₽. Итоговая цена зависит от объёма и количества носителей. Смету фиксируем в договоре и не меняем по ходу работы.',
+      q: 'How much does it cost?',
+      a: 'Identity projects start at $18,000 and campaigns at $11,500. The final price depends on scope and the number of touchpoints. We fix the estimate in the contract and never change it midway.',
     },
     {
-      q: 'Как устроен процесс работы?',
-      a: 'Погружение, стратегия, айдентика, запуск и развитие. На каждом этапе — презентация и согласование. У вас один менеджер и общий чат с командой.',
+      q: 'What does the process look like?',
+      a: 'Immersion, strategy, identity, launch and growth. Every stage ends with a presentation and your sign-off. You get one dedicated project lead and a shared channel with the team.',
     },
     {
-      q: 'Кому принадлежат права на макеты?',
-      a: 'Вам. После финальной оплаты передаём исключительные права на все согласованные материалы и исходники по договору отчуждения.',
+      q: 'Who owns the final files?',
+      a: 'You do. Once the final invoice is paid, we transfer full ownership of all approved work and source files to you.',
     },
     {
-      q: 'Работаете ли вы с регионами и другими странами?',
-      a: 'Да. Больше половины наших клиентов — не из Москвы. Встречи проводим онлайн, при необходимости приезжаем на стратегические сессии.',
+      q: 'Do you work with clients remotely?',
+      a: 'Yes — most of our clients are remote. We meet online and fly in for strategy sessions when it really matters.',
     },
     {
-      q: 'Что нужно для старта?',
-      a: 'Короткий бриф и 30 минут на созвон. Остальные материалы запросим сами и подготовим план работ за 3 рабочих дня.',
+      q: 'What do you need to get started?',
+      a: 'A short brief and a 30-minute call. We’ll request everything else ourselves and send you a project plan within three business days.',
     },
   ],
 }
 
 export const CONTACT = {
-  eyebrow: 'Контакты',
-  titleLines: ['Создадим бренд,', 'который запомнят'],
-  text: 'Расскажите о задаче — ответим в течение рабочего дня и предложим время для звонка.',
-  budgets: ['до 500 000 ₽', '500 000 – 1 000 000 ₽', '1 – 3 млн ₽', 'от 3 млн ₽'],
+  eyebrow: 'Contact',
+  titleLines: ['Let’s build a brand', 'people remember'],
+  text: 'Tell us about your project. We’ll reply within one business day and suggest a time for a call.',
+  budgets: ['Under $10k', '$10k – $25k', '$25k – $50k', '$50k+'],
   fields: {
-    name: 'Как вас зовут',
-    contact: 'Телефон или Telegram',
-    task: 'Коротко о задаче',
-    budget: 'Бюджет',
+    name: 'Your name',
+    contact: 'Email or phone',
+    task: 'Tell us about the project',
+    budget: 'Budget',
   },
-  submit: 'Отправить заявку',
-  successTitle: 'Заявка отправлена',
-  successText: 'Спасибо! Мы уже читаем ваше сообщение и свяжемся с вами в течение рабочего дня.',
-  successReset: 'Отправить ещё одну',
-  privacy: 'Нажимая кнопку, вы соглашаетесь на обработку персональных данных.',
+  placeholders: {
+    name: 'Jane Cooper',
+    contact: 'jane@company.com',
+    task: 'e.g. We’re rebranding a chain of coffee shops and need new packaging',
+  },
+  submit: 'Send request',
+  sending: 'Sending…',
+  successTitle: 'Request sent',
+  successText: 'Thank you! We’re already reading your message and will get back to you within one business day.',
+  successReset: 'Send another',
+  error: 'We couldn’t send your request. Please try again or email us directly:',
+  privacy: 'By submitting this form, you agree to the processing of your personal data.',
+  privacyLink: 'Privacy policy',
 }
 
 export const FOOTER = {
   email: 'hello@nocturne.studio',
-  phone: '+7 (495) 000-00-00',
-  phoneHref: '+74950000000',
-  address: 'Москва, Большая Никитская, 21',
+  phone: '+1 (212) 555-0147',
+  phoneHref: '+12125550147',
+  address: 'Brooklyn, New York',
+  headings: { nav: 'Navigation', contact: 'Contact', social: 'Social' },
   socials: [
-    { label: 'Telegram', href: 'https://t.me/' },
-    { label: 'VK', href: 'https://vk.com/' },
-    { label: 'Instagram*', href: 'https://instagram.com/' },
+    { label: 'Instagram', href: 'https://instagram.com/' },
+    { label: 'Behance', href: 'https://behance.net/' },
+    { label: 'Dribbble', href: 'https://dribbble.com/' },
+    { label: 'LinkedIn', href: 'https://linkedin.com/' },
   ],
-  disclaimer: '*Instagram принадлежит компании Meta, признанной экстремистской и запрещённой на территории РФ.',
-  copyright: `© ${new Date().getFullYear()} NOCTURNE STUDIO. Все права защищены.`,
+  copyright: `© ${new Date().getFullYear()} NOCTURNE STUDIO. All rights reserved.`,
+}
+
+/** Подписи для скринридеров (не видны на экране) */
+export const A11Y = {
+  skip: 'Skip to content',
+  hero: 'Introduction',
+  loading: 'Loading',
+  home: 'Back to top',
+  menuOpen: 'Open menu',
+  menuClose: 'Close menu',
+  menu: 'Menu',
+  navLeft: 'Main navigation',
+  navRight: 'Secondary navigation',
+  navMobile: 'Mobile navigation',
+  navFooter: 'Footer navigation',
+  carousel: 'carousel',
+  principles: 'Our principles',
+  toServices: 'Go to services',
+  prevSlide: 'Previous slide',
+  nextSlide: 'Next slide',
+  prevCard: 'Previous card',
+  nextCard: 'Next card',
+  marquee: 'What we do',
+  about: 'About the studio',
+  discuss: (title: string) => `${title}: discuss this service`,
+  viewCase: (name: string, category: string, year: string) => `${name}, ${category}, ${year}. View case`,
+  portrait: (name: string) => `Portrait of ${name}`,
+  slider: 'slider',
+  reviews: 'Client testimonials',
+  chooseReview: 'Choose a testimonial',
+  review: (i: number, name: string) => `Testimonial ${i}: ${name}`,
+  prevReview: 'Previous testimonial',
+  nextReview: 'Next testimonial',
+  contact: 'Contact us',
+  honeypot: 'Leave this field empty',
 }

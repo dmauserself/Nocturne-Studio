@@ -1,5 +1,6 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m as motion } from 'framer-motion'
 import { EASE } from '../lib/motion'
+import { A11Y } from '../content'
 import { Logo } from './Logo'
 import { Moon } from './Moon'
 
@@ -13,7 +14,7 @@ export function Preloader({ visible }: { visible: boolean }) {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, filter: 'blur(10px)', transition: { duration: 0.8, ease: EASE } }}
           role="status"
-          aria-label="Загрузка сайта"
+          aria-label={A11Y.loading}
         >
           <div className="flex flex-col items-center gap-10">
             <motion.div

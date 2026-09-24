@@ -1,8 +1,8 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m as motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Logo } from '../components/Logo'
 import { Moon } from '../components/Moon'
-import { CONTACT, FOOTER, NAV_LEFT, NAV_RIGHT } from '../content'
+import { CONTACT, FOOTER, NAV_LEFT, NAV_RIGHT, A11Y } from '../content'
 import { scrollToHash, startScroll, stopScroll } from '../lib/lenis'
 import { EASE } from '../lib/motion'
 
@@ -47,7 +47,7 @@ export function Header() {
               : 'border-transparent bg-transparent'
           }`}
         >
-          <nav aria-label="Основная навигация, левая часть" className="hidden flex-1 lg:block">
+          <nav aria-label={A11Y.navLeft} className="hidden flex-1 lg:block">
             <ul className="flex items-center gap-8 xl:gap-12">
               {NAV_LEFT.map((l) => (
                 <li key={l.href}>
@@ -59,11 +59,11 @@ export function Header() {
             </ul>
           </nav>
 
-          <a href="#top" onClick={(e) => go(e, '#top')} className="shrink-0 rounded-md" aria-label="На главную">
+          <a href="#top" onClick={(e) => go(e, '#top')} className="shrink-0 rounded-md" aria-label={A11Y.home}>
             <Logo />
           </a>
 
-          <nav aria-label="Основная навигация, правая часть" className="hidden flex-1 lg:block">
+          <nav aria-label={A11Y.navRight} className="hidden flex-1 lg:block">
             <ul className="flex items-center justify-end gap-8 xl:gap-12">
               {NAV_RIGHT.map((l) => (
                 <li key={l.href}>
@@ -78,12 +78,12 @@ export function Header() {
           <button
             type="button"
             className="relative grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5 lg:hidden"
-            aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
+            aria-label={open ? A11Y.menuClose : A11Y.menuOpen}
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
           >
-            <span className="sr-only">Меню</span>
+            <span className="sr-only">{A11Y.menu}</span>
             <span
               className={`absolute h-px w-5 bg-white transition-transform duration-500 ${open ? 'rotate-45' : '-translate-y-[4px]'}`}
             />
@@ -100,7 +100,7 @@ export function Header() {
             id="mobile-menu"
             role="dialog"
             aria-modal="true"
-            aria-label="Меню сайта"
+            aria-label={A11Y.menu}
             className="fixed inset-0 z-40 overflow-y-auto bg-night-950/[0.97] lg:hidden"
             initial={{ opacity: 0, clipPath: 'circle(0% at 100% 0%)' }}
             animate={{ opacity: 1, clipPath: 'circle(150% at 100% 0%)', transition: { duration: 0.8, ease: EASE } }}
@@ -110,7 +110,7 @@ export function Header() {
               <Moon textured={false} />
             </div>
             <div className="glow left-[-20%] top-[40%] h-80 w-80 text-indigo" aria-hidden />
-            <nav aria-label="Мобильная навигация" className="relative flex min-h-full flex-col justify-between px-6 pb-10 pt-28">
+            <nav aria-label={A11Y.navMobile} className="relative flex min-h-full flex-col justify-between px-6 pb-10 pt-28">
               <ul className="space-y-1">
                 {ALL.map((l, i) => (
                   <motion.li

@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m as motion } from 'framer-motion'
 import { useId, useState } from 'react'
 import { Plus } from '../components/Icons'
 import { Reveal } from '../components/Reveal'

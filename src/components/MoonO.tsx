@@ -61,7 +61,8 @@ export function MoonText({ text, className }: { text: string; className?: string
         {text.slice(start, idx)}
         <span className="relative inline-block">
           <span className="sr-only">{letter}</span>
-          <MoonO className={className} />
+          {/* явный цвет: внутри градиентного заголовка текст прозрачный, а луна должна быть видна */}
+          <MoonO className={`text-[#f1edff] ${className ?? ''}`} />
         </span>
         {text.slice(idx + 2, end)}
       </span>

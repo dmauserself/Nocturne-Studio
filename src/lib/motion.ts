@@ -1,18 +1,15 @@
 import type { Variants } from 'framer-motion'
-import { liteEffects } from './browser'
 
-// Лёгкое размытие при появлении (отключается переключателем в lib/browser.ts)
-const BLUR_IN = liteEffects ? {} : { filter: 'blur(8px)' }
-const BLUR_OUT = liteEffects ? {} : { filter: 'blur(0px)' }
+// Появление блоков — только сдвиг и прозрачность (дёшево для GPU).
+// Анимация размытия (blur) заставляла браузер перерисовывать блоки на каждом кадре прокрутки.
 
 export const EASE = [0.22, 1, 0.36, 1] as const
 
 export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 32, ...BLUR_IN },
+  hidden: { opacity: 0, y: 32 },
   show: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    ...BLUR_OUT,
     transition: { duration: 0.9, ease: EASE, delay: i * 0.08 },
   }),
 }

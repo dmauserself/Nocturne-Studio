@@ -1,26 +1,32 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Политика конфиденциальности — NOCTURNE STUDIO</title>
+    <title>Privacy Policy — NOCTURNE STUDIO</title>
     <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="dark" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&subset=cyrillic&display=swap" rel="stylesheet" />
+    <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
     <style>
-      :root { color-scheme: dark; }
+      @font-face {
+        font-family: 'Montserrat';
+        font-weight: 100 900;
+        font-display: swap;
+        src: url('/fonts/montserrat-latin.woff2') format('woff2');
+      }
       body {
         margin: 0;
         background: #05030a;
         color: rgba(237, 233, 255, 0.78);
         font: 16px/1.7 Montserrat, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
       }
       main { max-width: 760px; margin: 0 auto; padding: 64px 20px 96px; }
       a { color: #b9a6ff; }
-      h1 { color: #fff; font-size: clamp(28px, 5vw, 44px); line-height: 1.1; margin: 24px 0 8px; }
+      h1 { color: #fff; font-size: clamp(28px, 5vw, 44px); line-height: 1.1; margin: 24px 0 8px; letter-spacing: -0.02em; text-wrap: balance; }
       h2 { color: #fff; font-size: 20px; margin: 40px 0 8px; }
+      p, li { text-wrap: pretty; }
       .back { font-size: 14px; text-decoration: none; }
       .muted { color: rgba(237, 233, 255, 0.5); font-size: 14px; }
       mark { background: rgba(124, 92, 255, 0.25); color: #ede9ff; padding: 0 4px; border-radius: 4px; }
@@ -28,64 +34,69 @@
   </head>
   <body>
     <main>
-      <a class="back" href="/">← Вернуться на сайт</a>
-      <h1>Политика конфиденциальности</h1>
-      <p class="muted">Редакция от <mark>[дата]</mark></p>
+      <a class="back" href="/">← Back to the site</a>
+      <h1>Privacy Policy</h1>
+      <p class="muted">Last updated: <mark>[date]</mark></p>
 
       <!--
         ШАБЛОН. Замените всё в квадратных скобках реальными данными владельца сайта.
-        Перед запуском рекомендуется показать текст юристу.
+        Для работы с клиентами из ЕС/Великобритании (GDPR) или Калифорнии (CCPA) текст стоит показать юристу.
       -->
 
-      <h2>1. Кто обрабатывает данные</h2>
+      <h2>1. Who we are</h2>
       <p>
-        Оператор персональных данных — <mark>[ИП Фамилия Имя Отчество / ООО «Название»]</mark>,
-        ИНН <mark>[ИНН]</mark>, ОГРН/ОГРНИП <mark>[номер]</mark>, адрес: <mark>[адрес]</mark>
-        (далее — «Оператор»). Контакт для вопросов о персональных данных:
+        This website is operated by <mark>[Company name]</mark>, registered at <mark>[address]</mark>
+        (“we”, “us”). If you have any questions about this policy or your data, contact us at
         <a href="mailto:[email]"><mark>[email]</mark></a>.
       </p>
 
-      <h2>2. Какие данные мы собираем</h2>
-      <p>Через форму заявки на сайте: имя, номер телефона или ник в Telegram, описание задачи и ориентировочный бюджет.</p>
+      <h2>2. What we collect</h2>
       <p>
-        Автоматически: данные о посещении сайта (IP-адрес, сведения о браузере и устройстве, cookie, действия на сайте)
-        с помощью сервиса веб-аналитики «Яндекс Метрика».
+        <strong>Information you give us.</strong> When you submit the contact form, we collect your name, your email
+        address or phone number, a description of your project and your approximate budget.
+      </p>
+      <p>
+        <strong>Information collected automatically.</strong> If analytics are enabled, we collect standard usage data
+        such as your IP address, browser and device type, pages visited and interactions with the site, using cookies.
       </p>
 
-      <h2>3. Зачем</h2>
+      <h2>3. Why we use it</h2>
+      <ul>
+        <li>To reply to your enquiry, discuss your project and prepare a proposal.</li>
+        <li>To understand how the site is used and improve it.</li>
+      </ul>
+
+      <h2>4. Legal basis</h2>
       <p>
-        Чтобы связаться с вами по заявке, обсудить проект и подготовить предложение, а также чтобы анализировать
-        посещаемость и улучшать сайт.
+        We process form data because you asked us to contact you (steps taken at your request before entering into a
+        contract) and, where applicable, on the basis of your consent. Analytics are processed on the basis of our
+        legitimate interest in improving the site or your consent, where required by law.
       </p>
 
-      <h2>4. Основание</h2>
+      <h2>5. Sharing and storage</h2>
       <p>
-        Ваше согласие, которое вы даёте, отправляя форму на сайте (ст. 6 и 9 Федерального закона от 27.07.2006 № 152-ФЗ
-        «О персональных данных»).
+        We never sell your data. We share it only with service providers that help us run the site — hosting, the
+        messaging service we use to receive enquiries and, if enabled, web analytics — and only as far as needed.
+        Enquiries are transmitted over an encrypted connection (HTTPS) and kept no longer than necessary, and in any
+        case no longer than <mark>[3 years]</mark>.
       </p>
 
-      <h2>5. Как мы храним и защищаем данные</h2>
+      <h2>6. Your rights</h2>
       <p>
-        Заявки передаются Оператору через защищённое соединение (HTTPS) и хранятся не дольше, чем нужно для целей
-        обработки, но не более <mark>[3 лет]</mark> с момента получения. Мы не продаём и не передаём ваши данные третьим
-        лицам, кроме случаев, предусмотренных законом, и сервисов, необходимых для работы сайта (хостинг, мессенджер для
-        приёма заявок, веб-аналитика).
+        Depending on where you live, you may have the right to access, correct or delete your data, to object to or
+        restrict its processing, to data portability, and to withdraw your consent at any time. To exercise any of
+        these rights, email <a href="mailto:[email]"><mark>[email]</mark></a>. We’ll respond within 30 days. You also
+        have the right to lodge a complaint with your local data protection authority.
       </p>
 
-      <h2>6. Ваши права</h2>
+      <h2>7. Cookies</h2>
       <p>
-        Вы можете запросить сведения о ваших данных, потребовать их уточнения или удаления, а также отозвать согласие,
-        написав на <a href="mailto:[email]"><mark>[email]</mark></a>. Мы ответим в течение 10 рабочих дней.
+        The site itself works without cookies. Cookies are used only by analytics, if enabled. You can block or delete
+        cookies in your browser settings at any time — the site will keep working.
       </p>
 
-      <h2>7. Cookie</h2>
-      <p>
-        Сайт использует cookie для работы аналитики. Вы можете отключить cookie в настройках браузера — сайт продолжит
-        работать.
-      </p>
-
-      <h2>8. Изменения</h2>
-      <p>Оператор может обновлять эту политику. Актуальная версия всегда доступна на этой странице.</p>
+      <h2>8. Changes to this policy</h2>
+      <p>We may update this policy from time to time. The current version is always available on this page.</p>
     </main>
   </body>
 </html>

@@ -1,4 +1,4 @@
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { m as motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { MoonPhase } from '../components/Moon'
 import { SectionHead } from '../components/SectionHead'

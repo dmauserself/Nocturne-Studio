@@ -1,9 +1,12 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { CursorGlow } from './components/CursorGlow'
+import { A11Y } from './content'
 import { Noise } from './components/Noise'
 import { Preloader } from './components/Preloader'
 import { Starfield } from './components/Starfield'
+import { prefersReducedMotion } from './lib/browser'
 import { initLenis, startScroll, stopScroll } from './lib/lenis'
+import { MOON_READY_EVENT } from './components/MoonGL'
 import { Header } from './sections/Header'
 import { Hero } from './sections/Hero'
 import { Marquee } from './sections/Marquee'
@@ -21,13 +24,14 @@ export default function App() {
   useEffect(() => {
     const destroy = initLenis()
     stopScroll()
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const reduced = prefersReducedMotion()
     let cancelled = false
-    // Прелоадер держим, пока не загрузятся шрифты и нижние секции (но не дольше 3 с)
+    // Прелоадер держим, пока не загрузятся шрифты, нижние секции и не будет готова 3D-луна (но не дольше 3,5 с)
+    const moonReady = new Promise((r) => window.addEventListener(MOON_READY_EVENT, r, { once: true }))
     const minDelay = new Promise((r) => setTimeout(r, reduced ? 300 : PRELOAD_MS))
     const assets = Promise.race([
-      Promise.all([document.fonts?.ready, belowFold]),
-      new Promise((r) => setTimeout(r, 3000)),
+      Promise.all([document.fonts?.ready, belowFold, moonReady]),
+      new Promise((r) => setTimeout(r, 3500)),
     ])
     Promise.all([minDelay, assets]).then(() => {
       if (cancelled) return
@@ -48,7 +52,7 @@ export default function App() {
         href="#main"
         className="sr-only z-[110] rounded-full bg-moon px-5 py-3 text-night-950 focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
       >
-        Перейти к содержимому
+        {A11Y.skip}
       </a>
       <Starfield />
       <CursorGlow />

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m as motion } from 'framer-motion'
 import type { ElementType, ReactNode } from 'react'
 import { fadeUp, lineReveal, viewportOnce } from '../lib/motion'
 import { MoonText } from './MoonO'
@@ -52,8 +52,8 @@ export function LineReveal({
       <span className="sr-only">{lines.join(' ').replace(/\^/g, '')}</span>
       <motion.span aria-hidden className="block" {...trigger}>
         {lines.map((line, i) => (
-          <span key={i} className={`block overflow-hidden pb-[0.08em] ${indent[i] ?? ''}`}>
-            <motion.span className={`block ${lineClassName}`} variants={lineReveal} custom={i + delay}>
+          <span key={i} className={`-mb-[0.1em] block overflow-hidden pb-[0.18em] ${indent[i] ?? ''}`}>
+            <motion.span className={`text-moonlit block ${lineClassName}`} variants={lineReveal} custom={i + delay}>
               <MoonText text={line} />
             </motion.span>
           </span>

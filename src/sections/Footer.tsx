@@ -2,7 +2,7 @@ import { FitText } from '../components/FitText'
 import { ArrowUpRight } from '../components/Icons'
 import { Logo } from '../components/Logo'
 import { MoonO } from '../components/MoonO'
-import { BRAND, DEMO, DEMO_MODE, FOOTER, NAV_LEFT, NAV_RIGHT } from '../content'
+import { BRAND, DEMO, DEMO_MODE, FOOTER, NAV_LEFT, NAV_RIGHT, A11Y, CONTACT } from '../content'
 
 export function Footer() {
   return (
@@ -14,8 +14,8 @@ export function Footer() {
             <p className="mt-6 max-w-xs text-sm leading-[1.6] text-body">{BRAND.tagline}.</p>
           </div>
 
-          <nav aria-label="Навигация в подвале" className="md:col-span-3">
-            <p className="mb-5 text-xs uppercase tracking-[0.2em] text-lilac">Навигация</p>
+          <nav aria-label={A11Y.navFooter} className="md:col-span-3">
+            <p className="mb-5 text-xs uppercase tracking-[0.2em] text-lilac">{FOOTER.headings.nav}</p>
             <ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
               {[...NAV_LEFT, ...NAV_RIGHT].map((l) => (
                 <li key={l.href}>
@@ -28,7 +28,7 @@ export function Footer() {
           </nav>
 
           <div className="md:col-span-3">
-            <p className="mb-5 text-xs uppercase tracking-[0.2em] text-lilac">Контакты</p>
+            <p className="mb-5 text-xs uppercase tracking-[0.2em] text-lilac">{FOOTER.headings.contact}</p>
             <address className="space-y-3 text-sm not-italic">
               <a href={`mailto:${FOOTER.email}`} className="block text-white hover:text-lilac">
                 {FOOTER.email}
@@ -41,7 +41,7 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-2">
-            <p className="mb-5 text-xs uppercase tracking-[0.2em] text-lilac">Соцсети</p>
+            <p className="mb-5 text-xs uppercase tracking-[0.2em] text-lilac">{FOOTER.headings.social}</p>
             <ul className="space-y-3 text-sm">
               {FOOTER.socials.map((s) => (
                 <li key={s.label}>
@@ -59,12 +59,11 @@ export function Footer() {
           <p>
             {FOOTER.copyright}{" "}
             <a href="/privacy.html" className="underline decoration-moon/30 underline-offset-2 hover:text-moon">
-              Политика конфиденциальности
+              {CONTACT.privacyLink}
             </a>
           </p>
           <div className="max-w-xl space-y-1 md:text-right">
             {DEMO_MODE && <p className="text-lilac/80">{DEMO.footerNote}</p>}
-            <p>{FOOTER.disclaimer}</p>
           </div>
         </div>
       </div>

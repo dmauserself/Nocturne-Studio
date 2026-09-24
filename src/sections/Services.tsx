@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
+import { m as motion } from 'framer-motion'
 import { ArrowUpRight } from '../components/Icons'
 import { SectionHead } from '../components/SectionHead'
-import { SERVICES } from '../content'
+import { SERVICES, A11Y } from '../content'
 import { scrollToHash } from '../lib/lenis'
 import { fadeUp, viewportOnce } from '../lib/motion'
 
@@ -23,7 +23,7 @@ function ServiceCard({ index, title, text }: { index: number; title: string; tex
         }}
         onPointerMove={onMove}
         className="group glass relative flex h-full min-h-[300px] flex-col overflow-hidden p-7 transition-[border-color,transform] duration-500 hover:-translate-y-1 hover:border-lilac/30 sm:min-h-[340px] sm:p-9"
-        aria-label={`${title}: обсудить услугу`}
+        aria-label={A11Y.discuss(title)}
       >
         <span
           aria-hidden

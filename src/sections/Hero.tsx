@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { m as motion, useTransform } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { FitText } from '../components/FitText'
 import { ArrowLeft, ArrowRight, ArrowUpRight } from '../components/Icons'
@@ -7,7 +7,7 @@ import { MoonGL } from '../components/MoonGL'
 import { MoonO } from '../components/MoonO'
 import { Portrait } from '../components/Portrait'
 import { LineReveal } from '../components/Reveal'
-import { BRAND, HERO } from '../content'
+import { BRAND, HERO, A11Y } from '../content'
 import { usePrefersReducedMotion } from '../lib/hooks'
 import { scrollToHash } from '../lib/lenis'
 import { usePointerParallax } from '../lib/parallax'
@@ -17,11 +17,6 @@ const SLIDE_MS = 5500
 
 export function Hero({ ready }: { ready: boolean }) {
   const ref = useRef<HTMLElement>(null)
-  const reduced = usePrefersReducedMotion()
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const k = reduced ? 0 : 1
-  const moonY = useTransform(scrollYProgress, [0, 1], [0, 60 * k])
-  const wordY = useTransform(scrollYProgress, [0, 1], [0, 30 * k])
   const show = ready ? 'show' : 'hidden'
 
   // Глубина сцены за курсором: надпись (дальний план) и луна (ближний) смещаются в разные стороны
@@ -31,7 +26,7 @@ export function Hero({ ready }: { ready: boolean }) {
   const wordPX = useTransform(pointer.x, (v) => v * -8)
 
   return (
-    <section ref={ref} id="top" aria-label="Первый экран" className="relative px-2 pt-2 sm:px-3 sm:pt-3">
+    <section ref={ref} id="top" aria-label={A11Y.hero} className="relative px-2 pt-2 sm:px-3 sm:pt-3">
       <div className="window flex min-h-[100svh] flex-col bg-night-950">
         {/* Лунные свечения: индиго → сиреневый → серебро (вместо оранжевого из референса) */}
         <div aria-hidden className="window-bg">
@@ -113,8 +108,8 @@ export function Hero({ ready }: { ready: boolean }) {
         </div>
 
         {/* Сцена: гигантская надпись и 3D-луна поверх неё (эффект глубины, как в референсе) */}
-        <div className="relative mt-10 pt-[70vw] sm:pt-[48vw] lg:mt-0 lg:pt-0">
-          <motion.div style={{ y: wordY }} className="container-site relative z-10 pb-6 sm:pb-10">
+        <div className="relative mt-10 pt-[58vw] sm:pt-[44vw] lg:mt-0 lg:pt-0">
+          <div className="sd-hero-word container-site relative z-10 pb-6 sm:pb-10">
             <motion.div
               initial={{ opacity: 0, y: 80 }}
               animate={ready ? { opacity: 1, y: 0 } : undefined}
@@ -129,11 +124,11 @@ export function Hero({ ready }: { ready: boolean }) {
                 </FitText>
               </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
 
           <motion.div
-            style={{ y: moonY, x: '-50%' }}
-            className="pointer-events-none absolute bottom-[5vw] left-1/2 z-20 w-[78vw] sm:w-[54vw] lg:bottom-[4.5vw] lg:w-[min(31vw,60vh)]"
+            style={{ x: '-50%' }}
+            className="sd-hero-moon pointer-events-none absolute bottom-[5vw] left-1/2 z-20 w-[54vw] sm:w-[42vw] lg:bottom-[5vw] lg:w-[min(25vw,50vh)]"
             initial={{ opacity: 0, scale: 0.88 }}
             animate={ready ? { opacity: 1, scale: 1 } : undefined}
             transition={{ duration: 1.8, ease: EASE, delay: 0.1 }}
@@ -192,8 +187,8 @@ function HeroCarousel() {
     <div
       className="glass flex gap-5 p-3 pr-5 sm:p-3.5 sm:pr-6"
       role="region"
-      aria-roledescription="карусель"
-      aria-label="Наши принципы"
+      aria-roledescription={A11Y.carousel}
+      aria-label={A11Y.principles}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -230,7 +225,7 @@ function HeroCarousel() {
               scrollToHash('#services')
             }}
             className="btn-round btn-round--light h-9 w-9"
-            aria-label="Перейти к услугам"
+            aria-label={A11Y.toServices}
           >
             <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
@@ -281,10 +276,10 @@ function HeroCarousel() {
             ))}
           </div>
           <div className="flex gap-2">
-            <button type="button" onClick={() => go(-1)} className="btn-round btn-round--light h-9 w-9" aria-label="Предыдущий слайд">
+            <button type="button" onClick={() => go(-1)} className="btn-round btn-round--light h-9 w-9" aria-label={A11Y.prevSlide}>
               <ArrowLeft className="h-4 w-4" />
             </button>
-            <button type="button" onClick={() => go(1)} className="btn-round btn-round--accent h-9 w-9" aria-label="Следующий слайд">
+            <button type="button" onClick={() => go(1)} className="btn-round btn-round--accent h-9 w-9" aria-label={A11Y.nextSlide}>
               <ArrowRight className="h-4 w-4" />
             </button>
           </div>

@@ -20,3 +20,10 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Шрифты: кэш на 30 дней (имена файлов без хэша, поэтому не «навсегда»)
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+    Access-Control-Allow-Origin = "*"

@@ -1,5 +1,5 @@
 import { MoonO } from '../components/MoonO'
-import { MARQUEE } from '../content'
+import { MARQUEE, A11Y } from '../content'
 
 /** Бегущая строка с контурными буквами */
 export function Marquee() {
@@ -17,7 +17,7 @@ export function Marquee() {
   )
 
   return (
-    <section aria-label="Направления работы" className="relative overflow-clip border-y border-line py-10 sm:py-14">
+    <section aria-label={A11Y.marquee} className="relative overflow-clip border-y border-line py-10 sm:py-14">
       <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
         {row(false)}
         {row(true)}

@@ -15,3 +15,14 @@ export const isSafari =
 export const liteEffects = isSafari && SAFARI_LITE_EFFECTS
 
 if (typeof document !== 'undefined') document.documentElement.classList.toggle('lite-effects', liteEffects)
+
+/**
+ * Учитывать ли системную настройку «Уменьшить движение» (prefers-reduced-motion).
+ * false — сайт всегда полностью анимирован, даже если настройка включена (по желанию владельца).
+ * true  — при включённой настройке анимации упрощаются (рекомендуется для реальных клиентских сайтов:
+ *         эту настройку включают люди, которым от движения на экране становится плохо).
+ */
+export const RESPECT_REDUCED_MOTION = false
+
+export const prefersReducedMotion = () =>
+  RESPECT_REDUCED_MOTION && typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches

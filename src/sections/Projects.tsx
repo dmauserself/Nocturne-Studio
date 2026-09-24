@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion'
+import { m as motion } from 'framer-motion'
 import { ArrowUpRight } from '../components/Icons'
 import { MeshGradient } from '../components/MeshGradient'
 import { MoonPhase } from '../components/Moon'
 import { SectionHead } from '../components/SectionHead'
-import { PROJECTS } from '../content'
+import { PROJECTS, A11Y } from '../content'
 import { fadeUp, viewportOnce } from '../lib/motion'
 
 // Асимметричная сетка: первые два кейса крупнее
@@ -36,7 +36,7 @@ export function Projects() {
               <a
                 href="#contact"
                 className="group relative block h-full overflow-hidden rounded-[28px] border border-line"
-                aria-label={`${p.name}, ${p.category}, ${p.year}. Смотреть кейс`}
+                aria-label={A11Y.viewCase(p.name, p.category, p.year)}
               >
                 {/* ЗАМЕНА НА ФОТО: обложка кейса, например <img src="/images/projects/polaris.jpg" /> */}
                 <div className="absolute inset-0 transition-transform duration-[1.2s] ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.06]">

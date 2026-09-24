@@ -1,11 +1,11 @@
 import Lenis from 'lenis'
-import { isSafari } from './browser'
+import { isSafari, prefersReducedMotion } from './browser'
 
 let lenis: Lenis | null = null
 
 
 export function initLenis(): () => void {
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const reduced = prefersReducedMotion()
   // Safari: родная инерционная прокрутка вместо JS-скролла (см. lib/browser.ts)
   if (reduced || isSafari) {
     document.documentElement.classList.add('native-scroll')

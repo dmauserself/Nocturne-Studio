@@ -1,5 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { m as motion } from 'framer-motion'
 import { FitText } from '../components/FitText'
 import { ArrowUpRight } from '../components/Icons'
 import { Magnetic } from '../components/MagneticButton'
@@ -7,7 +6,6 @@ import { MoonO } from '../components/MoonO'
 import { LineReveal, Reveal } from '../components/Reveal'
 import { MoonGL } from '../components/MoonGL'
 import { PHILOSOPHY } from '../content'
-import { usePrefersReducedMotion } from '../lib/hooks'
 import { scrollToHash } from '../lib/lenis'
 import { EASE, fadeUp, viewportOnce } from '../lib/motion'
 
@@ -15,19 +13,13 @@ import { EASE, fadeUp, viewportOnce } from '../lib/motion'
 const CHART = [0.45, 0.62, 0.3, 0.72, 0.9, 0.36, 0.68, 0.55, 0.6, 0.48, 0.2, 0.8, 0.52, 0.66, 0.84, 0.93, 0.7, 0.4, 0.58, 0.75, 0.46, 0.88, 0.5, 0.96]
 
 export function Philosophy() {
-  const ref = useRef<HTMLElement>(null)
-  const reduced = usePrefersReducedMotion()
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const k = reduced ? 0 : 1
-  const figY = useTransform(scrollYProgress, [0, 1], [60 * k, -30 * k])
-  const wordX = useTransform(scrollYProgress, [0, 1], [28 * k, -28 * k])
 
   const { identity, campaign } = PHILOSOPHY
   const bars = 40
   const filled = Math.round((bars * identity.progress) / 100)
 
   return (
-    <section ref={ref} id="philosophy" aria-label={PHILOSOPHY.eyebrow} className="relative px-2 sm:px-3">
+    <section id="philosophy" aria-label={PHILOSOPHY.eyebrow} className="relative px-2 sm:px-3">
       <div className="window bg-night-950 pt-[var(--section-y)]">
         <div aria-hidden className="window-bg">
           <div
@@ -118,19 +110,18 @@ export function Philosophy() {
 
         {/* Надпись STUDIOS и «затмение» — 3D-луна в контровом свете поверх неё */}
         <div className="relative mt-16 pt-[56vw] sm:pt-[38vw] lg:-mt-[14vw] lg:pt-[18vw]">
-          <motion.div style={{ x: wordX }} className="container-site relative z-10">
+          <div className="sd-phil-word container-site relative z-10">
             <FitText className="font-semibold uppercase tracking-[-0.03em] text-white">
               <span aria-hidden>
                 STUDI<MoonO className="mx-[0.02em]" />S
               </span>
             </FitText>
-          </motion.div>
-          <motion.div
-            style={{ y: figY, x: '-50%' }}
-            className="pointer-events-none absolute bottom-[3vw] left-1/2 z-20 w-[68vw] sm:w-[44vw] lg:bottom-[2vw] lg:w-[min(25vw,50vh)]"
+          </div>
+          <div
+            className="sd-phil-moon pointer-events-none absolute -translate-x-1/2 bottom-[3vw] left-1/2 z-20 w-[58vw] sm:w-[38vw] lg:bottom-[2.5vw] lg:w-[min(21vw,42vh)]"
           >
-            <MoonGL light={[0.95, 0.3, -0.4]} />
-          </motion.div>
+            <MoonGL light={[0.95, 0.3, -0.4]} deferred />
+          </div>
         </div>
       </div>
     </section>

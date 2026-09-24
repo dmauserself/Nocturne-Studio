@@ -1,10 +1,10 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m as motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { ArrowLeft, ArrowRight, QuoteMark } from '../components/Icons'
 import { Moon } from '../components/Moon'
 import { Reveal } from '../components/Reveal'
 import { SectionHead } from '../components/SectionHead'
-import { TESTIMONIALS } from '../content'
+import { TESTIMONIALS, A11Y } from '../content'
 import { EASE } from '../lib/motion'
 
 const AUTOPLAY_MS = 7000
@@ -40,8 +40,8 @@ export function Testimonials() {
             <div
               className="glass relative p-7 sm:p-12 lg:p-16"
               role="region"
-              aria-roledescription="слайдер"
-              aria-label="Отзывы клиентов"
+              aria-roledescription={A11Y.slider}
+              aria-label={A11Y.reviews}
               onMouseEnter={() => setPaused(true)}
               onMouseLeave={() => setPaused(false)}
               onFocus={() => setPaused(true)}
@@ -75,14 +75,14 @@ export function Testimonials() {
               </div>
 
               <div className="mt-10 flex items-center justify-between gap-6 border-t border-line pt-8">
-                <div className="flex items-center gap-2" role="tablist" aria-label="Выбор отзыва">
+                <div className="flex items-center gap-2" role="tablist" aria-label={A11Y.chooseReview}>
                   {items.map((t, i) => (
                     <button
                       key={t.name}
                       type="button"
                       role="tab"
                       aria-selected={i === index}
-                      aria-label={`Отзыв ${i + 1}: ${t.name}`}
+                      aria-label={A11Y.review(i + 1, t.name)}
                       onClick={() => setState([i, i > index ? 1 : -1])}
                       className={`h-2 rounded-full transition-all duration-500 ${i === index ? 'w-10 bg-lilac' : 'w-2 bg-white/25 hover:bg-white/50'}`}
                     />
@@ -92,10 +92,10 @@ export function Testimonials() {
                   </span>
                 </div>
                 <div className="flex gap-3">
-                  <button type="button" onClick={() => go(-1)} className="btn-round btn-round--light h-12 w-12 sm:h-14 sm:w-14" aria-label="Предыдущий отзыв">
+                  <button type="button" onClick={() => go(-1)} className="btn-round btn-round--light h-12 w-12 sm:h-14 sm:w-14" aria-label={A11Y.prevReview}>
                     <ArrowLeft />
                   </button>
-                  <button type="button" onClick={() => go(1)} className="btn-round btn-round--accent h-12 w-12 sm:h-14 sm:w-14" aria-label="Следующий отзыв">
+                  <button type="button" onClick={() => go(1)} className="btn-round btn-round--accent h-12 w-12 sm:h-14 sm:w-14" aria-label={A11Y.nextReview}>
                     <ArrowRight />
                   </button>
                 </div>

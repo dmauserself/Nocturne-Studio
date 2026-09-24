@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m as motion } from 'framer-motion'
 import { useRef } from 'react'
 import { Counter } from '../components/Counter'
 import { ArrowLeft, ArrowRight } from '../components/Icons'
@@ -6,7 +6,7 @@ import { Logo } from '../components/Logo'
 import { MeshGradient } from '../components/MeshGradient'
 import { Orb } from '../components/Orb'
 import { LineReveal, Reveal } from '../components/Reveal'
-import { PRESENCE } from '../content'
+import { PRESENCE, A11Y } from '../content'
 import { fadeUp, viewportOnce } from '../lib/motion'
 
 export function Presence() {
@@ -20,7 +20,7 @@ export function Presence() {
   }
 
   return (
-    <section id="about" aria-label="О студии" className="relative px-2 sm:px-3">
+    <section id="about" aria-label={A11Y.about} className="relative px-2 sm:px-3">
       <div className="window section bg-night-950">
         <div aria-hidden className="window-bg">
           <div
@@ -56,10 +56,10 @@ export function Presence() {
             <div className="flex items-end justify-between lg:col-span-3 lg:flex-col lg:items-start">
               <p className="text-sm text-moon/80">{PRESENCE.eyebrow}</p>
               <div className="flex gap-3">
-                <button type="button" onClick={() => scrollBy(-1)} className="btn-round btn-round--light h-14 w-14 sm:h-[72px] sm:w-[72px]" aria-label="Предыдущая карточка">
+                <button type="button" onClick={() => scrollBy(-1)} className="btn-round btn-round--light h-14 w-14 sm:h-[72px] sm:w-[72px]" aria-label={A11Y.prevCard}>
                   <ArrowLeft />
                 </button>
-                <button type="button" onClick={() => scrollBy(1)} className="btn-round btn-round--accent h-14 w-14 sm:h-[72px] sm:w-[72px]" aria-label="Следующая карточка">
+                <button type="button" onClick={() => scrollBy(1)} className="btn-round btn-round--accent h-14 w-14 sm:h-[72px] sm:w-[72px]" aria-label={A11Y.nextCard}>
                   <ArrowRight />
                 </button>
               </div>

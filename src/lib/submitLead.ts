@@ -18,7 +18,7 @@ export async function submitLead(lead: Lead, honeypot = ''): Promise<void> {
   // Демо-режим и локальная разработка: заявка никуда не уходит
   if (DEMO_MODE || import.meta.env.DEV) {
     await new Promise((r) => setTimeout(r, 800))
-    if (import.meta.env.DEV) console.info('[submitLead] заявка не отправлена (демо/dev):', lead)
+    if (import.meta.env.DEV) console.info('[submitLead] demo/dev mode, request not sent:', lead)
     return
   }
 
@@ -39,15 +39,15 @@ export async function submitLead(lead: Lead, honeypot = ''): Promise<void> {
 
 export function validateLead(lead: Lead) {
   const errors: Partial<Record<keyof Lead, string>> = {}
-  if (lead.name.trim().length < 2) errors.name = 'Представьтесь, пожалуйста'
+  if (lead.name.trim().length < 2) errors.name = 'Please tell us your name'
 
   const c = lead.contact.trim()
   const digits = c.replace(/\D/g, '')
-  const isPhone = /^[+\d\s()-]+$/.test(c) && digits.length >= 10 && digits.length <= 15
-  const isTelegram = /^@?[a-zA-Z0-9_]{5,32}$/.test(c) || /^(https?:\/\/)?t\.me\/[a-zA-Z0-9_]{5,32}$/.test(c)
-  if (!isPhone && !isTelegram) errors.contact = 'Укажите телефон или ник в Telegram, например @nocturne'
+  const isPhone = /^[+\d\s().-]+$/.test(c) && digits.length >= 7 && digits.length <= 15
+  const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c)
+  if (!isPhone && !isEmail) errors.contact = 'Enter a valid email or phone number'
 
-  if (lead.task.trim().length < 10) errors.task = 'Опишите задачу хотя бы в паре слов'
-  if (!lead.budget) errors.budget = 'Выберите примерный бюджет'
+  if (lead.task.trim().length < 10) errors.task = 'Tell us a little more — a sentence or two is enough'
+  if (!lead.budget) errors.budget = 'Choose an approximate budget'
   return errors
 }

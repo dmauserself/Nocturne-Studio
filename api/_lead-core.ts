@@ -53,13 +53,13 @@ export async function processLead(rawBody: unknown, env: Env): Promise<LeadResul
 
   const page = typeof body.page === 'string' ? body.page.slice(0, 200) : ''
   const text = [
-    '🌙 <b>Новая заявка с сайта</b>',
+    '🌙 <b>New enquiry from the website</b>',
     '',
-    `<b>Имя:</b> ${escapeHtml(lead.name)}`,
-    `<b>Контакт:</b> ${escapeHtml(lead.contact)}`,
-    `<b>Бюджет:</b> ${escapeHtml(lead.budget || '—')}`,
+    `<b>Name:</b> ${escapeHtml(lead.name)}`,
+    `<b>Contact:</b> ${escapeHtml(lead.contact)}`,
+    `<b>Budget:</b> ${escapeHtml(lead.budget || '—')}`,
     '',
-    `<b>Задача:</b>\n${escapeHtml(lead.task)}`,
+    `<b>Project:</b>\n${escapeHtml(lead.task)}`,
     page ? `\n<i>${escapeHtml(page)}</i>` : '',
   ].join('\n')
 

@@ -5,7 +5,7 @@ import { useFinePointer, usePrefersReducedMotion } from './hooks'
 /**
  * Положение курсора относительно центра окна в диапазоне −1…1 (с пружиной).
  * Используется для «глубины»: слои сцены смещаются с разной силой.
- * На тач-устройствах и при reduced motion всегда 0.
+ * На тач-устройствах всегда 0 (и при «Уменьшить движение», если это включено в lib/browser.ts).
  */
 export function usePointerParallax(): { x: MotionValue<number>; y: MotionValue<number> } {
   const fine = useFinePointer()

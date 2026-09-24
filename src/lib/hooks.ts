@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { RESPECT_REDUCED_MOTION } from './browser'
 
 export function useMediaQuery(query: string) {
   const [matches, setMatches] = useState(() =>
@@ -19,6 +20,8 @@ export function useFinePointer() {
   return useMediaQuery('(hover: hover) and (pointer: fine) and (min-width: 1024px)')
 }
 
+/** Учитывает «Уменьшить движение» только если это включено в lib/browser.ts (RESPECT_REDUCED_MOTION) */
 export function usePrefersReducedMotion() {
-  return useMediaQuery('(prefers-reduced-motion: reduce)')
+  const matches = useMediaQuery('(prefers-reduced-motion: reduce)')
+  return RESPECT_REDUCED_MOTION && matches
 }

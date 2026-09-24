@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { liteEffects } from '../lib/browser'
+import { liteEffects, prefersReducedMotion } from '../lib/browser'
 
 /**
  * Деликатное звёздное небо на canvas.
@@ -14,7 +14,7 @@ export function Starfield() {
     const ctx = canvas?.getContext('2d')
     if (!canvas || !ctx) return
 
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const reduced = prefersReducedMotion()
     const twinkle = !liteEffects && !reduced
     const tints = ['237,233,255', '185,166,255', '143,180,255']
     let stars: { x: number; y: number; r: number; a: number; s: number; p: number; tint: string }[] = []

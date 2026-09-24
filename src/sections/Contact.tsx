@@ -1,10 +1,10 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m as motion } from 'framer-motion'
 import { useState } from 'react'
 import { ArrowUpRight, Check } from '../components/Icons'
 import { Magnetic } from '../components/MagneticButton'
 import { Moon } from '../components/Moon'
 import { LineReveal, Reveal } from '../components/Reveal'
-import { CONTACT, DEMO, DEMO_MODE, FOOTER } from '../content'
+import { CONTACT, DEMO, DEMO_MODE, FOOTER, A11Y } from '../content'
 import { EASE } from '../lib/motion'
 import { reachGoal } from '../lib/analytics'
 import { submitLead, validateLead, type Lead } from '../lib/submitLead'
@@ -64,7 +64,7 @@ export function Contact() {
     ) : null
 
   return (
-    <section id="contact" aria-label="Оставить заявку" className="relative px-2 sm:px-3">
+    <section id="contact" aria-label={A11Y.contact} className="relative px-2 sm:px-3">
       <div className="window section bg-night-950">
         <div aria-hidden className="window-bg">
           <div
@@ -141,7 +141,7 @@ export function Contact() {
                   >
                     <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden>
                       <label>
-                        Не заполняйте это поле
+                        {A11Y.honeypot}
                         <input tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} name="website" />
                       </label>
                     </div>
@@ -154,7 +154,7 @@ export function Contact() {
                           id="lead-name"
                           className="field"
                           autoComplete="name"
-                          placeholder="Анна"
+                          placeholder={CONTACT.placeholders.name}
                           value={lead.name}
                           onChange={(e) => update('name', e.target.value)}
                           aria-invalid={!!errors.name}
@@ -169,9 +169,9 @@ export function Contact() {
                         <input
                           id="lead-contact"
                           className="field"
-                          autoComplete="tel"
-                          inputMode="text"
-                          placeholder="+7 900 000-00-00 или @ник"
+                          autoComplete="email"
+                          inputMode="email"
+                          placeholder={CONTACT.placeholders.contact}
                           value={lead.contact}
                           onChange={(e) => update('contact', e.target.value)}
                           aria-invalid={!!errors.contact}
@@ -189,7 +189,7 @@ export function Contact() {
                         id="lead-task"
                         rows={4}
                         className="field resize-none"
-                        placeholder="Например: нужен ребрендинг сети кофеен и новая упаковка"
+                        placeholder={CONTACT.placeholders.task}
                         value={lead.task}
                         onChange={(e) => update('task', e.target.value)}
                         aria-invalid={!!errors.task}
@@ -231,7 +231,7 @@ export function Contact() {
 
                     {sendError && (
                       <p role="alert" className="rounded-2xl border border-[#ffb3cf]/30 bg-[#ffb3cf]/10 px-4 py-3 text-sm text-[#ffd6e5]">
-                        Не удалось отправить заявку. Попробуйте ещё раз или напишите нам напрямую:{' '}
+                        {CONTACT.error}{' '}
                         <a href={`mailto:${FOOTER.email}`} className="underline">{FOOTER.email}</a>
                       </p>
                     )}
@@ -239,7 +239,7 @@ export function Contact() {
                     <div className="flex flex-col gap-5 pt-4 sm:flex-row sm:items-center sm:justify-between">
                       <Magnetic>
                         <button type="submit" className="btn-primary disabled:opacity-70" disabled={status === 'sending'}>
-                          {status === 'sending' ? 'Отправляем…' : CONTACT.submit}
+                          {status === 'sending' ? CONTACT.sending : CONTACT.submit}
                           <span className="btn-dot">
                             {status === 'sending' ? (
                               <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" aria-hidden />
@@ -252,7 +252,7 @@ export function Contact() {
                       <p className="max-w-[16rem] text-xs leading-relaxed text-moon/50">
                         {CONTACT.privacy}{' '}
                         <a href="/privacy.html" target="_blank" rel="noopener" className="underline decoration-moon/30 underline-offset-2 hover:text-moon">
-                          Политика конфиденциальности
+                          {CONTACT.privacyLink}
                         </a>
                       </p>
                     </div>
