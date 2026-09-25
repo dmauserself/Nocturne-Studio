@@ -7,7 +7,7 @@
 | # | Где на сайте | Файл и строка | Что сделать | Рекомендуемый размер |
 |---|---|---|---|---|
 | 1 | Hero: 3D-луна перед надписью NOCTURNE | `src/sections/Hero.tsx`, `<MoonGL />` | Замена не нужна. Если хотите вернуть человека — PNG/WebP **без фона** вместо `<MoonGL />` (`object-contain object-bottom`) | 1200×1440 |
-| 2 | Hero: карусель «Узнаваемость / Характер / Рост» | `src/sections/Hero.tsx`, `<Portrait tone={slide.tone} art={slide.art} />` | Пока показываются небесные объекты (`art` в `HERO.slides`). Для фото добавьте поле `image` в `HERO.slides` (`src/content.ts`) и передайте `src={slide.image}` | 800×1000 |
+| 2 | Hero: карусель «Узнаваемость / Характер / Рост» | `src/sections/Hero.tsx`, `<Portrait tone={slide.tone} art={slide.art} />` | Пока показываются небесные объекты (`art` в `HERO.slides`). Для фото добавьте поле `image` в `HERO.slides` (`src/i18n/ru.ts` и `src/i18n/en.ts`) и передайте `src={slide.image}` | 800×1000 |
 | 3 | «Присутствие на рынке»: карточка 97% | `src/sections/Presence.tsx`, `<Orb variant="ringed" />` | При желании замените на `<img>` c `object-cover` | 900×1100 |
 | 4 | «Философия»: 3D-луна в затмении перед STUDIOS | `src/sections/Philosophy.tsx`, `<MoonGL light={…} />` | Замена не нужна | — |
 | 5 | Проекты: 6 обложек кейсов | `src/sections/Projects.tsx`, комментарий «ЗАМЕНА НА ФОТО» | Замените `<MeshGradient/>` и `<CaseArt/>` на `<img src=… className="h-full w-full object-cover" />`; добавьте поле `image` в `PROJECTS.items` | 1600×1200 (первые два) и 1200×900 |
@@ -20,10 +20,13 @@
 
 ## Тексты, контакты, название
 
-- Все тексты: `src/content.ts`.
-- Название агентства: константа `BRAND` в `src/content.ts` (логотип и гигантские надписи подхватят его).
+- Все тексты: `src/i18n/ru.ts` (русский, основной) и `src/i18n/en.ts` (английский). Структура у файлов одинаковая — TypeScript подскажет, если в одном из языков чего-то не хватает.
+- Язык по умолчанию — русский. Английский: переключатель RU | EN в шапке или ссылка с `?lang=en`. Настройка — `src/i18n/locale.ts`.
+- Название агентства: `BRAND` в `src/i18n/ru.ts` и `src/i18n/en.ts` (логотип и гигантские надписи подхватят его).
   Гигантская надпись в hero и футере собрана вручную как `N<MoonO/>CTURNE` — при смене названия
   поправьте её в `src/sections/Hero.tsx` и `src/sections/Footer.tsx`.
 - Буква-луна в заголовках: поставьте `^` перед нужной буквой «О», например `'бренды ^остаются'`.
 - Отправка формы: заглушка `submitLead` в `src/lib/submitLead.ts` — подключите свой бэкенд/CRM/Telegram-бота.
-- Ссылки на соцсети, e-mail, телефон, адрес: `FOOTER` в `src/content.ts`.
+- Ссылки на соцсети, e-mail, телефон, адрес: `FOOTER` в `src/i18n/ru.ts` и `src/i18n/en.ts`.
+- Демо-режим формы (для портфолио): `DEMO_MODE` в `src/content.ts`.
+- Политика конфиденциальности: `public/privacy.html` (русская) и `public/privacy-en.html` (английская).

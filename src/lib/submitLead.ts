@@ -1,4 +1,4 @@
-import { DEMO_MODE } from '../content'
+import { CONTACT, DEMO_MODE } from '../content'
 
 export type Lead = {
   name: string
@@ -39,15 +39,16 @@ export async function submitLead(lead: Lead, honeypot = ''): Promise<void> {
 
 export function validateLead(lead: Lead) {
   const errors: Partial<Record<keyof Lead, string>> = {}
-  if (lead.name.trim().length < 2) errors.name = 'Please tell us your name'
+  if (lead.name.trim().length < 2) errors.name = CONTACT.errors.name
 
   const c = lead.contact.trim()
   const digits = c.replace(/\D/g, '')
   const isPhone = /^[+\d\s().-]+$/.test(c) && digits.length >= 7 && digits.length <= 15
   const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c)
-  if (!isPhone && !isEmail) errors.contact = 'Enter a valid email or phone number'
+  const isTelegram = /^@[a-zA-Z0-9_]{5,32}$/.test(c) || /^(https?:\/\/)?t\.me\/[a-zA-Z0-9_]{5,32}$/.test(c)
+  if (!isPhone && !isEmail && !isTelegram) errors.contact = CONTACT.errors.contact
 
-  if (lead.task.trim().length < 10) errors.task = 'Tell us a little more — a sentence or two is enough'
-  if (!lead.budget) errors.budget = 'Choose an approximate budget'
+  if (lead.task.trim().length < 10) errors.task = CONTACT.errors.task
+  if (!lead.budget) errors.budget = CONTACT.errors.budget
   return errors
 }

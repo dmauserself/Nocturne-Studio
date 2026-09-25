@@ -1,5 +1,6 @@
 import { AnimatePresence, m as motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { LangSwitch } from '../components/LangSwitch'
 import { Logo } from '../components/Logo'
 import { Moon } from '../components/Moon'
 import { CONTACT, FOOTER, NAV_LEFT, NAV_RIGHT, A11Y } from '../content'
@@ -72,12 +73,17 @@ export function Header() {
                   </a>
                 </li>
               ))}
+              <li>
+                <LangSwitch />
+              </li>
             </ul>
           </nav>
 
+          <div className="flex items-center gap-3 lg:hidden">
+          <LangSwitch />
           <button
             type="button"
-            className="relative grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5 lg:hidden"
+            className="relative grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5"
             aria-label={open ? A11Y.menuClose : A11Y.menuOpen}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -91,6 +97,7 @@ export function Header() {
               className={`absolute h-px w-5 bg-white transition-transform duration-500 ${open ? '-rotate-45' : 'translate-y-[4px]'}`}
             />
           </button>
+          </div>
         </div>
       </header>
 

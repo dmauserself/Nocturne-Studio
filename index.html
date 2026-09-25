@@ -1,25 +1,31 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>NOCTURNE STUDIO — Marketing Agency &amp; Creative Studio</title>
-    <meta name="description" content="NOCTURNE STUDIO builds clear brand systems: strategy, visual identity, packaging, websites and ad campaigns. Brands people recognize at a glance." />
+    <title>NOCTURNE STUDIO — маркетинговое агентство и креативная студия</title>
+    <meta name="description" content="NOCTURNE STUDIO строит ясные бренд-системы: стратегия, айдентика, упаковка, сайты и рекламные кампании. Бренды, которые узнают с первого взгляда." />
     <meta name="theme-color" content="#05030A" />
     <meta name="color-scheme" content="dark" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="NOCTURNE STUDIO" />
-    <meta property="og:title" content="NOCTURNE STUDIO — Clarity first. Then the system." />
-    <meta property="og:description" content="Strategy, identity and communication, shaped into one clear brand system. Let’s build a brand people remember." />
+    <meta property="og:title" content="NOCTURNE STUDIO — сначала ясность, потом система" />
+    <meta property="og:description" content="Стратегия, айдентика и коммуникации, собранные в единую бренд-систему. Создадим бренд, который запомнят." />
     <!-- Замените на реальную обложку 1200×630 (PNG/JPG) и абсолютный URL сайта -->
     <meta property="og:image" content="/og-cover.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Шрифт хранится в проекте (public/fonts): грузится сразу, без запроса к Google -->
+    <link rel="preload" href="/fonts/montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Английская версия сайта: тот же адрес с ?lang=en -->
+    <link rel="alternate" hreflang="ru" href="/" />
+    <link rel="alternate" hreflang="en" href="/?lang=en" />
   </head>
   <body>
     <div id="root"></div>

@@ -96,7 +96,7 @@ export function Presence() {
                       <Counter to={c.value} suffix={c.suffix} />
                     </p>
                     <div className="relative">
-                      <h3 className={`text-lg font-semibold sm:text-xl ${light ? 'text-night-950' : 'text-white'}`}>{c.title}</h3>
+                      <h3 className={`text-lg font-semibold [hyphens:auto] [overflow-wrap:break-word] sm:text-xl lg:text-lg xl:text-xl ${light ? 'text-night-950' : 'text-white'}`}>{c.title}</h3>
                       <p className={`mt-3 text-sm leading-[1.55] ${light ? 'text-night-950/70' : 'text-moon/75'}`}>{c.text}</p>
                     </div>
                   </motion.article>

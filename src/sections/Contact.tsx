@@ -170,7 +170,7 @@ export function Contact() {
                           id="lead-contact"
                           className="field"
                           autoComplete="email"
-                          inputMode="email"
+                          inputMode="text"
                           placeholder={CONTACT.placeholders.contact}
                           value={lead.contact}
                           onChange={(e) => update('contact', e.target.value)}
@@ -251,7 +251,7 @@ export function Contact() {
                       </Magnetic>
                       <p className="max-w-[16rem] text-xs leading-relaxed text-moon/50">
                         {CONTACT.privacy}{' '}
-                        <a href="/privacy.html" target="_blank" rel="noopener" className="underline decoration-moon/30 underline-offset-2 hover:text-moon">
+                        <a href={CONTACT.privacyHref} target="_blank" rel="noopener" className="underline decoration-moon/30 underline-offset-2 hover:text-moon">
                           {CONTACT.privacyLink}
                         </a>
                       </p>

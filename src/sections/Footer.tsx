@@ -58,12 +58,13 @@ export function Footer() {
         <div className="mt-14 flex flex-col gap-3 text-xs text-moon/50 md:flex-row md:justify-between">
           <p>
             {FOOTER.copyright}{" "}
-            <a href="/privacy.html" className="underline decoration-moon/30 underline-offset-2 hover:text-moon">
+            <a href={CONTACT.privacyHref} className="underline decoration-moon/30 underline-offset-2 hover:text-moon">
               {CONTACT.privacyLink}
             </a>
           </p>
           <div className="max-w-xl space-y-1 md:text-right">
             {DEMO_MODE && <p className="text-lilac/80">{DEMO.footerNote}</p>}
+            {FOOTER.disclaimer && <p>{FOOTER.disclaimer}</p>}
           </div>
         </div>
       </div>

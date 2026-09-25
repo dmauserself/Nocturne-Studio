@@ -4,7 +4,13 @@ import { createRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
 import './lib/browser'
+import { META } from './content'
 import { initAnalytics } from './lib/analytics'
+
+// Язык, заголовок и описание страницы — по выбранному языку (по умолчанию русский, см. i18n/locale.ts)
+document.documentElement.lang = META.lang
+document.title = META.title
+document.querySelector('meta[name="description"]')?.setAttribute('content', META.description)
 
 initAnalytics()
 
